@@ -97,6 +97,9 @@ class CreateMemeController: UIViewController {
     @IBAction func memeTextChanged(_ sender: Any) {
         checkShareAvailable()
     }
+    @IBAction func cancelMemePressed(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     // MARK: Class Methods
     
@@ -137,8 +140,7 @@ class CreateMemeController: UIViewController {
         if ((memeImage.image != nil) && (topTextField.text != nil) && (bottomTextField.text != nil)
             && ((topTextField.text!.count > 0) || (bottomTextField.text!.count > 0))) {
             let meme = MemeImage(original: memeImage.image, topText: topTextField.text!, bottomText: bottomTextField.text!)
-            let object = UIApplication.shared.delegate
-            let appDelegate = object as! AppDelegate
+            let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
             appDelegate.memes.append(meme)
         }
     }

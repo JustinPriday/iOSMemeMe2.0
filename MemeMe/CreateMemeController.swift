@@ -22,6 +22,8 @@ class CreateMemeController: UIViewController {
         .font: UIFont(name: "Impact", size: 40)!,
         .strokeWidth: -1]
     
+    public var memeItem: MemeImage?
+    
     @IBOutlet weak var imageContainer: UIView!
     @IBOutlet weak var memeImage: UIImageView!
     @IBOutlet weak var memeImageAspectConstraint: NSLayoutConstraint!
@@ -51,6 +53,12 @@ class CreateMemeController: UIViewController {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
         checkShareAvailable()
+        
+        if let memeItem = memeItem {
+            memeImage.image = memeItem.originalImage
+            topTextField.text = memeItem.topText
+            bottomTextField.text = memeItem.bottomText
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

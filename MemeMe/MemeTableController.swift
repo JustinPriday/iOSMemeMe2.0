@@ -50,7 +50,11 @@ class MemeTableController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated:true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "CreateMemeController") as! CreateMemeController
+        controller.memeItem = memes[indexPath.row]
+        self.present(controller, animated: true, completion: nil)
     }
     
 }

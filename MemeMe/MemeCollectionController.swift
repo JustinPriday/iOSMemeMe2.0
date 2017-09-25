@@ -51,7 +51,12 @@ class MemeCollectionController: UIViewController, UICollectionViewDataSource, UI
         cell.memeImage.image = memes[indexPath.row].getMemedImage()
 
         return cell
-        
     }
-
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "CreateMemeController") as! CreateMemeController
+        controller.memeItem = memes[indexPath.row]
+        self.present(controller, animated: true, completion: nil)
+    }
 }

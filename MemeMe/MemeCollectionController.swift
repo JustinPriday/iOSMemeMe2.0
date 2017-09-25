@@ -38,6 +38,14 @@ class MemeCollectionController: UIViewController, UICollectionViewDataSource, UI
         memeCollection.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let memeRow = memeCollection.indexPathsForSelectedItems?.first?.row {
+            let viewMeme = segue.destination as! ViewMemeController
+            viewMeme.memeItem = memes[memeRow]
+            memeCollection.deselectItem(at: (memeCollection.indexPathsForSelectedItems?.first)!, animated: false)
+        }
+    }
+    
     //MARK: UICollectionView all Delegates
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -53,10 +61,4 @@ class MemeCollectionController: UIViewController, UICollectionViewDataSource, UI
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "CreateMemeController") as! CreateMemeController
-        controller.memeItem = memes[indexPath.row]
-        self.present(controller, animated: true, completion: nil)
-    }
 }

@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--List-->
+        <!--Sent Memes-->
         <scene sceneID="vbb-GF-haA">
             <objects>
                 <viewController id="lWL-OD-bLc" customClass="MemeTableController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -67,6 +67,7 @@
                                         <connections>
                                             <outlet property="memeImage" destination="rfL-NV-Qc5" id="xqj-LC-SYM"/>
                                             <outlet property="memeLabel" destination="bLJ-9w-y09" id="tYh-01-Ft7"/>
+                                            <segue destination="lHk-o0-0Gb" kind="show" identifier="ShowMeme" id="FSy-fL-fWr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -79,7 +80,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="DJr-8X-hFM"/>
                     </view>
-                    <navigationItem key="navigationItem" title="List" id="hhY-eR-f1u">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="hhY-eR-f1u">
                         <barButtonItem key="rightBarButtonItem" image="AddIcon" id="zJg-VO-aaG">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="1dM-ax-7ed"/>
@@ -94,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="-260" y="130.88455772113943"/>
         </scene>
-        <!--Collection-->
+        <!--Sent Memes-->
         <scene sceneID="afu-x2-xjV">
             <objects>
                 <viewController id="ZWs-lC-GUN" customClass="MemeCollectionController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,6 +147,7 @@
                                         </constraints>
                                         <connections>
                                             <outlet property="memeImage" destination="WC9-6g-ry5" id="ryQ-Sg-eQ7"/>
+                                            <segue destination="lHk-o0-0Gb" kind="show" identifier="ShowMeme" id="Lhu-Xo-aGi"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -158,7 +160,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="ayB-6c-kKx"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Collection" id="Rsa-S4-3Eg">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="Rsa-S4-3Eg">
                         <barButtonItem key="rightBarButtonItem" image="AddIcon" id="VFV-2g-toX">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="JMC-z4-TQs"/>
@@ -172,6 +174,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VEy-Y9-NCh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-260" y="821.73913043478262"/>
+        </scene>
+        <!--View Meme Controller-->
+        <scene sceneID="Ak5-S4-DXg">
+            <objects>
+                <viewController id="lHk-o0-0Gb" customClass="ViewMemeController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Z0-g6-r7j">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oSO-jI-Fvu" userLabel="ImageContainer">
+                                <rect key="frame" x="0.0" y="64" width="375" height="510"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JaW-2z-Mpo" userLabel="Meme Image">
+                                        <rect key="frame" x="0.0" y="67.5" width="375" height="375"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="JaW-2z-Mpo" secondAttribute="height" multiplier="1:1" id="eBv-Sv-5NJ"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="JaW-2z-Mpo" secondAttribute="trailing" priority="750" id="4dJ-ln-6WH"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JaW-2z-Mpo" secondAttribute="trailing" id="5QF-t3-i6H"/>
+                                    <constraint firstItem="JaW-2z-Mpo" firstAttribute="leading" secondItem="oSO-jI-Fvu" secondAttribute="leading" priority="750" id="LNW-3I-on4"/>
+                                    <constraint firstItem="JaW-2z-Mpo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oSO-jI-Fvu" secondAttribute="top" id="PqV-dD-nKX"/>
+                                    <constraint firstItem="JaW-2z-Mpo" firstAttribute="centerY" secondItem="oSO-jI-Fvu" secondAttribute="centerY" id="l2b-Lf-RQl"/>
+                                    <constraint firstItem="JaW-2z-Mpo" firstAttribute="centerX" secondItem="oSO-jI-Fvu" secondAttribute="centerX" id="seg-p6-Twm"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="JaW-2z-Mpo" secondAttribute="bottom" id="tEi-XD-NQH"/>
+                                    <constraint firstItem="JaW-2z-Mpo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oSO-jI-Fvu" secondAttribute="leading" id="u9C-J8-7N7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oSO-jI-Fvu" firstAttribute="bottom" secondItem="fMc-HT-plz" secondAttribute="bottom" id="LGY-pr-RFe"/>
+                            <constraint firstItem="oSO-jI-Fvu" firstAttribute="top" secondItem="fMc-HT-plz" secondAttribute="top" id="egv-g4-V0P"/>
+                            <constraint firstItem="oSO-jI-Fvu" firstAttribute="leading" secondItem="fMc-HT-plz" secondAttribute="leading" id="mtb-rI-1dP"/>
+                            <constraint firstItem="oSO-jI-Fvu" firstAttribute="trailing" secondItem="fMc-HT-plz" secondAttribute="trailing" id="sBS-vz-AWs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fMc-HT-plz"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="R3i-ll-rk1">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="5hK-nd-CuC">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="EditMemeSegue" id="RGS-he-Zxr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="memeImage" destination="JaW-2z-Mpo" id="Gm1-qG-lvk"/>
+                        <outlet property="memeImageAspectConstraint" destination="eBv-Sv-5NJ" id="472-pg-Ks7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u0s-fV-dfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1208.8" y="36.431784107946029"/>
         </scene>
         <!--Create Meme Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -236,8 +296,10 @@
                                     <constraint firstItem="pzk-6e-3tM" firstAttribute="leading" secondItem="0qF-32-cdR" secondAttribute="leading" priority="750" id="24H-hy-QV9"/>
                                     <constraint firstItem="pzk-6e-3tM" firstAttribute="centerY" secondItem="0qF-32-cdR" secondAttribute="centerY" id="7Ap-um-Ipw"/>
                                     <constraint firstAttribute="trailing" secondItem="pzk-6e-3tM" secondAttribute="trailing" priority="750" id="DLd-Y2-GyC"/>
+                                    <constraint firstItem="pzk-6e-3tM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0qF-32-cdR" secondAttribute="leading" id="LvY-Pp-Lgk"/>
                                     <constraint firstItem="pzk-6e-3tM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0qF-32-cdR" secondAttribute="top" id="Spg-GO-d8M"/>
                                     <constraint firstItem="pzk-6e-3tM" firstAttribute="centerX" secondItem="0qF-32-cdR" secondAttribute="centerX" id="ju3-ne-TEr"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pzk-6e-3tM" secondAttribute="trailing" id="rsV-di-ZpV"/>
                                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="pzk-6e-3tM" secondAttribute="bottom" id="wpU-jW-c3t"/>
                                 </constraints>
                             </view>
@@ -315,7 +377,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="M26-2c-nm5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="612" y="131"/>
+            <point key="canvasLocation" x="1169" y="808"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nZP-4a-ISn">
@@ -361,6 +423,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wqG-ek-MxR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="UyP-7N-CJJ">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
@@ -382,6 +445,7 @@
         <image name="ListIcon" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1dM-ax-7ed"/>
+        <segue reference="RGS-he-Zxr"/>
+        <segue reference="FSy-fL-fWr"/>
     </inferredMetricsTieBreakers>
 </document>

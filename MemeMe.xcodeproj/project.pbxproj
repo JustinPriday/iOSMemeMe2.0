@@ -22,6 +22,7 @@
 		FF95DE721F78DD8600956FE3 /* MemeCollectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95DE711F78DD8600956FE3 /* MemeCollectionController.swift */; };
 		FF95DE751F78DF4700956FE3 /* MemeItemListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95DE741F78DF4700956FE3 /* MemeItemListCell.swift */; };
 		FF95DE791F78DF8700956FE3 /* MemeItemCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95DE781F78DF8700956FE3 /* MemeItemCollectionCell.swift */; };
+		FF95DE7B1F79081F00956FE3 /* ViewMemeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF95DE7A1F79081F00956FE3 /* ViewMemeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		FF95DE711F78DD8600956FE3 /* MemeCollectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionController.swift; sourceTree = "<group>"; };
 		FF95DE741F78DF4700956FE3 /* MemeItemListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeItemListCell.swift; sourceTree = "<group>"; };
 		FF95DE781F78DF8700956FE3 /* MemeItemCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeItemCollectionCell.swift; sourceTree = "<group>"; };
+		FF95DE7A1F79081F00956FE3 /* ViewMemeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMemeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				FF654D161F7550A100D911A8 /* CreateMemeController.swift */,
 				FF259E8A1F77BE6300EA79C3 /* CreateMemeController+ImagePickerDelegate.swift */,
 				FF259E8C1F77BF2000EA79C3 /* CreateMemeController+Keyboard.swift */,
+				FF95DE7A1F79081F00956FE3 /* ViewMemeController.swift */,
 				FF95DE6F1F78DD6E00956FE3 /* MemeTableController.swift */,
 				FF95DE711F78DD8600956FE3 /* MemeCollectionController.swift */,
 				FF654D181F7550A100D911A8 /* Main.storyboard */,
@@ -201,6 +204,7 @@
 			files = (
 				FF259E8B1F77BE6300EA79C3 /* CreateMemeController+ImagePickerDelegate.swift in Sources */,
 				FF654D1D1F7550A100D911A8 /* MemeMe.xcdatamodeld in Sources */,
+				FF95DE7B1F79081F00956FE3 /* ViewMemeController.swift in Sources */,
 				FF654D171F7550A100D911A8 /* CreateMemeController.swift in Sources */,
 				FF75255B1F76CCD700DFDD88 /* MemeImage.swift in Sources */,
 				FF95DE721F78DD8600956FE3 /* MemeCollectionController.swift in Sources */,

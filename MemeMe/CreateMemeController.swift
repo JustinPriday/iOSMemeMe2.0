@@ -56,6 +56,7 @@ class CreateMemeController: UIViewController {
         
         if let memeItem = memeItem {
             memeImage.image = memeItem.originalImage
+            updateImageLayout()
             topTextField.text = memeItem.topText
             bottomTextField.text = memeItem.bottomText
         }

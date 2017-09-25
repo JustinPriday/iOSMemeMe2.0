@@ -34,6 +34,14 @@ class MemeTableController: UIViewController, UITableViewDataSource, UITableViewD
         memeTable.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let memeRow = memeTable.indexPathForSelectedRow?.row {
+            let viewMeme = segue.destination as! ViewMemeController
+            viewMeme.memeItem = memes[memeRow]
+            memeTable.deselectRow(at: memeTable.indexPathForSelectedRow!, animated: false)
+        }
+    }
+    
     //MARK: UITableView all Delegates
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -48,13 +56,17 @@ class MemeTableController: UIViewController, UITableViewDataSource, UITableViewD
         
         return cell
     }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated:true)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "CreateMemeController") as! CreateMemeController
-        controller.memeItem = memes[indexPath.row]
-        self.present(controller, animated: true, completion: nil)
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        print("Delete \(indexPath.row)")
+        if (editingStyle == .delete) {
+            let appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+            appDelegate.memes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
+        }
+    }
 }

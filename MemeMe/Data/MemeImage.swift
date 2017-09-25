@@ -57,5 +57,12 @@ struct MemeImage {
         return nil
     }
     
+    func fullTitle() -> String! {
+        return String(format: "%@%@%@",
+                      topText,
+                      (topText.count > 0 && bottomText.count > 0) ? " " : "",
+                      bottomText)
+    }
+    
 }
 

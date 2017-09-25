@@ -71,13 +71,18 @@ class CreateMemeController: UIViewController {
         bottomTextField.layoutIfNeeded()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("Prepare for exit segue")
+    }
+    
     //MARK: IBActions
     @IBAction func sharePressed(_ sender: Any) {
         let memeObject = MemeImage.init(original: memeImage.image, topText: topTextField.text!, bottomText: bottomTextField.text!)
         let image: UIImage = memeObject.getMemedImage()
         let controller = UIActivityViewController(activityItems: [image], applicationActivities: nil)
         controller.completionWithItemsHandler = {(activityType: UIActivityType?, completed:Bool, returnedItems:[Any]?, error: Error?) in
-            controller.dismiss(animated: true, completion: nil)
+//            controller.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "createExitSegue", sender: nil)
             if (completed) {
                 self.saveMeme()
                 self.memeImage.image = nil

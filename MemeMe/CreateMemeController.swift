@@ -68,16 +68,18 @@ class CreateMemeController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        func layoutTextField(textField: UITextField, textConstraint: NSLayoutConstraint) {
+            textField.font = UIFont(name: "Impact", size: memeImage.frame.size.height * 0.1)!
+            textField.layoutIfNeeded()
+            textConstraint.constant = (memeImage.frame.size.height * 0.15)
+        }
+        
         super.viewDidLayoutSubviews()
         
         //Implemented to force Meme text to be 10% of image height, this will match image generated.
         imageContainer.layoutSubviews()
-        topTextHeightConstraint.constant = (memeImage.frame.size.height * 0.15)
-        bottomTextHeightConstraint.constant = (memeImage.frame.size.height * 0.15)
-        topTextField.font = UIFont(name: "Impact", size: memeImage.frame.size.height * 0.1)!
-        bottomTextField.font = UIFont(name: "Impact", size: memeImage.frame.size.height * 0.1)!
-        topTextField.layoutIfNeeded()
-        bottomTextField.layoutIfNeeded()
+        layoutTextField(textField: topTextField, textConstraint: topTextHeightConstraint)
+        layoutTextField(textField: bottomTextField, textConstraint: bottomTextHeightConstraint)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -94,9 +96,7 @@ class CreateMemeController: UIViewController {
             self.performSegue(withIdentifier: "createExitSegue", sender: nil)
             if (completed) {
                 self.saveMeme()
-                self.memeImage.image = nil
-                self.topTextField.text = ""
-                self.bottomTextField.text = ""
+                self.resetDisplayedMeme()
                 self.checkShareAvailable()
                 self.dismiss(animated: true, completion: nil)
             }
@@ -132,7 +132,6 @@ class CreateMemeController: UIViewController {
             aspect = (imageSize.width) / (imageSize.height)
         }
         memeImageAspectConstraint = memeImageAspectConstraint.setMultiplier(multiplier: aspect)
-        
         memeImage.setNeedsUpdateConstraints()
         memeImage.layoutIfNeeded()
     }
@@ -147,6 +146,13 @@ class CreateMemeController: UIViewController {
                 }
             }
         }
+    }
+    
+    func resetDisplayedMeme() {
+        self.memeImage.image = nil
+        self.topTextField.text = ""
+        self.bottomTextField.text = ""
+        self.updateImageLayout()
     }
     
     func saveMeme() {

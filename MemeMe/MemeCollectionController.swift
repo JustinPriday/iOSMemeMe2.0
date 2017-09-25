@@ -17,6 +17,7 @@ class MemeCollectionController: UIViewController, UICollectionViewDataSource, UI
     }
     
     @IBOutlet weak var memeCollection: UICollectionView!
+    @IBOutlet weak var noMemesLabel: UILabel!
     
     //MARK: IBActions
     
@@ -49,15 +50,13 @@ class MemeCollectionController: UIViewController, UICollectionViewDataSource, UI
     //MARK: UICollectionView all Delegates
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        self.noMemesLabel.isHidden = (memes.count > 0) ? true : false
         return memes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MemeItemCollectionCell
-
         cell.memeImage.image = memes[indexPath.row].getMemedImage()
-
         return cell
     }
     

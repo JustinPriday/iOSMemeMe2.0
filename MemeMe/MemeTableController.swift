@@ -16,6 +16,7 @@ class MemeTableController: UIViewController, UITableViewDataSource, UITableViewD
         return (UIApplication.shared.delegate as! AppDelegate).memes
     }
     @IBOutlet weak var memeTable: UITableView!
+    @IBOutlet weak var noMemesLabel: UILabel!
     
     //MARK: IBActions
     
@@ -45,6 +46,7 @@ class MemeTableController: UIViewController, UITableViewDataSource, UITableViewD
     //MARK: UITableView all Delegates
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.noMemesLabel.isHidden = (memes.count > 0) ? true : false
         return memes.count
     }
     
